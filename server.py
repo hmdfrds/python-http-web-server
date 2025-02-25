@@ -1,6 +1,7 @@
 import json
 import os
 import sys
+from logger import Logger
 
 
 def load_config(config_file="config.json"):
@@ -46,11 +47,17 @@ def load_config(config_file="config.json"):
 
 
 if __name__ == "__main__":
+
     try:
         config = load_config()
+        logger = Logger(config["log_file"])
+        logger.start_periodic_stats()  # Start stats logging every 60 seconds
+
         print("Configuration loaded successfully:")
         for key, value in config.items():
             print(f"    {key}: {value}")
+
     except Exception as e:
+        logger.log_error(e)
         print(f"Error loading configuration: {e}")
         sys.exit(1)
