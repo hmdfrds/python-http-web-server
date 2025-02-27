@@ -35,6 +35,13 @@ def safe_path(document_root, request_path):
     return requested_full_path
 
 
-def http_date_format(date):
-    # Example Format: 'Mon, 25 Feb 2025 14:30:00 GMT'
-    return date.strftime("%a, %d %b %Y %H:%M:%S GMT")
+def http_date_format(dt):
+    """Format a datetime object int o an HTTP-date string as per RFC 7231
+
+    Args:
+        date (datatime.datetime): The datetime to format. If naive, it is assumed to be in UTC.
+
+    Returns:
+        str: The formatted HTTP date string (e.g., "Mon, 25 Feb 2025 14:30:00 GMT").
+    """
+    return dt.strftime("%a, %d %b %Y %H:%M:%S GMT")

@@ -3,6 +3,7 @@ import os
 import sys
 import socket
 import threading
+from admin_interface import AdminInterface
 from request_handler import HTTPRequestHandler
 from logger import Logger
 
@@ -112,6 +113,10 @@ if __name__ == "__main__":
 
     logger = Logger(config["log_file"])
     logger.start_periodic_stats()  # Start stats logging every 60 seconds
+
+    # Start the admin server
+    admin_interface = AdminInterface(config, logger)
+    admin_interface.start()
 
     # Start the HTTP server
     start_server(config, logger)
