@@ -1,4 +1,0 @@
-[25-02-2025 23:43:50] This is a test log entry.
-[25-02-2025 23:44:44] This is a test log entry.
-[25-02-2025 23:44:44] REQUEST from 127.0.0.1: 'GET /index.html HTTP/1.1' responded with 200
-[25-02-2025 23:44:44] ERROR: This is a test error.
